@@ -7,6 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { Feature01Module } from './feature01/feature01.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    Feature01Module,
     StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
